@@ -102,10 +102,9 @@ function fit!(ann::ArtificialNeuralNetwork,
     n_obs, n_feats = size(x)
     layers = ann.layers
     n_layers = length(layers)
-    println("Epoch\tObs")
     for _ = 1:epochs
+        println("Epoch:\t", _, "/", epochs)
         for i = 1:n_obs
-            println(_, "\t", i)
             y_hat = zeros(length(ann.classes))
             y_hat[findfirst(ann.classes,y[i])] = 1.
 
