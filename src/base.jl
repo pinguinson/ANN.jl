@@ -50,7 +50,7 @@ type ArtificialNeuralNetwork
 end
 
 function softmax(ann_output::Vector{Float64})
-    # Takes the output of a neural network and produces a valid 
+    # Takes the output of a neural network and produces a valid
     # probability distribution
     ann_output = exp(ann_output)
     ann_output / sum(ann_output)
@@ -104,6 +104,7 @@ function fit!(ann::ArtificialNeuralNetwork,
     n_layers = length(layers)
     for _ = 1:epochs
         for i = 1:n_obs
+            @printf("Epoch %d,\t Obs %d\n", _, i)
             y_hat = zeros(length(ann.classes))
             y_hat[findfirst(ann.classes,y[i])] = 1.
 
